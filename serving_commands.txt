@@ -1,0 +1,7 @@
+docker run -p 8500:8500 -p 8501:8501 \
+    -v ${PWD}/servings:/models/mnist_digit \
+    -e MODEL_NAME=mnist_digit -t tensorflow/serving
+
+docker run -p 8500:8500 -p 8501:8501 \
+    -v ${PWD}/classifier/saved_models:/models/textclassifier \
+    -e MODEL_NAME=textclassifier -t tensorflow/serving
