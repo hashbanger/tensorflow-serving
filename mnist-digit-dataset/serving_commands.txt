@@ -1,0 +1,4 @@
+docker run -p 8500:8500 -p 8501:8501 \
+    --name tfserver \
+    -v ${PWD}/mnist-digit-dataset/serving:/models/mnist_digit \
+    -e MODEL_NAME=mnist_digit -t tensorflow/serving
