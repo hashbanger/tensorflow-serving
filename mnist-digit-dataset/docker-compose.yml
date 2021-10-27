@@ -1,0 +1,12 @@
+version: '3'
+services:
+  tfserver:
+    image: tensorflow/serving
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+    volumes:
+      - ${PWD}/serving:/models/mnist_digit
+    environment:
+      - MODEL_NAME=mnist_digit
+    
