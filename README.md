@@ -2,6 +2,6 @@
 Learning to deploy tensorflow models using tensorflow serving.
 
 ## MNIST Example.
-- Run the file `mnist-digit-dataset\mnist-vanilla-cnn.ipynb` and train a cnn model.
-- Run the container using `docker-compose up -d` or alternatively run the command in `mnist-digit-dataset\serving_commands.txt`.
-- Open the `mnist-digit-dataset\request.ipynb`, load the testing images and hit the API using the requesting code.
+- Run the file `mnist-digit-dataset\tf-server\mnist-vanilla-cnn.ipynb` and train a cnn model.
+- Run the tensorflow and flask servers using `docker-compose up -d --build`.
+- Run `mnist-digit-dataset\request-post.py --image <image-path>`. 
