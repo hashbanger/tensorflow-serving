@@ -1,0 +1,41 @@
+version: '3.7'
+
+networks:
+  net1:
+
+services:
+  tfserver:
+    container_name: tfmodel
+    image: tensorflow/serving
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+    volumes:
+      - ${PWD}/tf-server/serving:/models/mnist_digit
+    environment:
+      - MODEL_NAME=mnist_digit
+    networks:
+      - net1
+
+  flaskserver:
+    image: flask-serve
+    build: flask-server/
+    ports:
+      - "8080:5000"
+    networks:
+      - net1
+
+
+
+
+  # tfserver:
+  #   container_name: tfmodel
+  #   image: tf-serve
+  #   build: tf-server/
+  #   ports:
+  #     - "8500:8500"
+  #     - "8501:8501"
+  #   environment:
+  #     - MODEL_NAME=mnist_digit
+  #   networks:
+  #     - net1
