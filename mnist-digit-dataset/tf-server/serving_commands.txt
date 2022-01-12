@@ -1,4 +1,0 @@
-docker run --rm -p 8500:8500 -p 8501:8501 \
-    --name tfserver \
-    -v ${PWD}/serving:/models/mnist_digit \
-    -e MODEL_NAME=mnist_digit -t tensorflow/serving
